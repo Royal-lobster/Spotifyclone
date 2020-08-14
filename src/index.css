@@ -1,5 +1,10 @@
 * {
   margin: 0;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 body {
   margin: 0;

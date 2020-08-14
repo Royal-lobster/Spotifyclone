@@ -8,7 +8,6 @@ import { useDataLayerValue } from "../Data/DataLayer";
 
 function Sidebar() {
   const [{ playlists }, dispatch] = useDataLayerValue();
-  console.log(playlists);
   return (
     <div className="sidebar">
       <img
@@ -23,7 +22,15 @@ function Sidebar() {
       <strong className="sidebar__title">PLAYLISTS</strong>
       <hr />
       {playlists?.items?.map((playlist) => (
-        <SidebarOption text={playlist.name} />
+        <SidebarOption
+          onClick={() => {
+            dispatch({
+              type: "SET_CURRENT_PLAYLIST",
+              current_playlist: playlist.id,
+            });
+          }}
+          text={playlist.name}
+        />
       ))}
     </div>
   );
