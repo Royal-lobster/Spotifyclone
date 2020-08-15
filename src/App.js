@@ -31,14 +31,22 @@ function App() {
           user: user,
         });
       });
-      spotify.getUserPlaylists().then((playlists) => {
-        dispatch({
-          type: "SET_PLAYLISTS",
-          playlists: playlists,
+      spotify
+        .getUserPlaylists()
+        .then((playlists) => {
+          dispatch({
+            type: "SET_PLAYLISTS",
+            playlists: playlists,
+          });
+        })
+        .then((playlists) => {
+          dispatch({
+            type: "SET_CURRENT_PLAYLIST",
+            current_playlist: "37i9dQZEVXbMDoHDwVN2tF",
+          });
         });
-      });
     }
-  }, [current_playlist]);
+  }, []);
 
   useEffect(() => {
     spotify.getPlaylist(current_playlist).then((response) => {

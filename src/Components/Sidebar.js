@@ -8,6 +8,7 @@ import { useDataLayerValue } from "../Data/DataLayer";
 
 function Sidebar() {
   const [{ playlists }, dispatch] = useDataLayerValue();
+  console.log(playlists);
   return (
     <div className="sidebar">
       <img
@@ -15,6 +16,8 @@ function Sidebar() {
         src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg"
         alt=""
       />
+
+      <p className="sidebar__credits">Clone Made by srujan with Reactjs</p>
       <SidebarOption active Icon={HomeIcon} text="Home" />
       <SidebarOption Icon={SearchIcon} text="Search" />
       <SidebarOption Icon={LibraryMusicIcon} text="Your Library" />
